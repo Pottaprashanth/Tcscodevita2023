@@ -1,0 +1,26 @@
+w = int(input())
+l = []
+for i in range(w):
+    a, b, c = map(int, input().split()) 
+    l.append((a, b, c))
+q = int(input())
+t = 0
+nt = 0
+nl = []
+j=0
+while(j<w):
+    n = [int(j) for j in input().split()] 
+    nl.append(n)
+    j+=1
+
+e = int(input())
+for k in range(w):
+    a, b, c = l[k]
+    if b > e: 
+        continue
+    elif c > e or not c: 
+        nt += a * (nl[k][e-1] - nl[k][b-1])
+    else: 
+        t += a * (nl[k][c-1] - nl[k][b-1])
+print(t)
+print(nt, end="")
